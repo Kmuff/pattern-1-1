@@ -72,14 +72,14 @@ public class DeliveryTest {
     @Test
     @DisplayName("shouldTestInvalidName")
     void shouldTestInvalidName() {
-        DataGenerator.InvalidUser invalidUser = DataGenerator.Registration.generateInvalidUser("eng");
+        DataGenerator.UserInfo invalidUser = DataGenerator.Registration.generateInvalidUser("eng");
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysForFirstMeeting = 4;
         String firstMeetingDate = DataGenerator.generateDate(daysForFirstMeeting);
         $("[data-test-id=city] input").setValue(validUser.getCity());
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
-        $("[data-test-id=name] input").setValue(invalidUser.getFunnyName());
+        $("[data-test-id=name] input").setValue(invalidUser.getPhone());
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id=agreement]").click();
         $(byText("Запланировать")).click();
@@ -91,7 +91,7 @@ public class DeliveryTest {
     @Test
     @DisplayName("shouldTestEmptyPhone")
     void shouldTestEmptyPhone() {
-        DataGenerator.EmptyUser emptyUser = DataGenerator.Registration.generateEmptyUser();
+        DataGenerator.UserInfo emptyUser = DataGenerator.Registration.generateEmptyUser();
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysForFirstMeeting = 4;
         String firstMeetingDate = DataGenerator.generateDate(daysForFirstMeeting);
@@ -99,7 +99,7 @@ public class DeliveryTest {
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
         $("[data-test-id=name] input").setValue(validUser.getName());
-        $("[data-test-id=phone] input").setValue(emptyUser.getEmptyPhone());
+        $("[data-test-id=phone] input").setValue(emptyUser.getPhone());
         $("[data-test-id=agreement]").click();
         $(byText("Запланировать")).click();
         $("[data-test-id='phone'] .input__sub")
@@ -110,11 +110,11 @@ public class DeliveryTest {
     @Test
     @DisplayName("shouldTestInvalidCity")
     void shouldTestInvalidCity() {
-        DataGenerator.InvalidUser invalidUser = DataGenerator.Registration.generateInvalidUser("eng");
+        DataGenerator.UserInfo invalidUser = DataGenerator.Registration.generateInvalidUser("eng");
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysForFirstMeeting = 4;
         String firstMeetingDate = DataGenerator.generateDate(daysForFirstMeeting);
-        $("[data-test-id=city] input").setValue(invalidUser.getInvalidCity());
+        $("[data-test-id=city] input").setValue(invalidUser.getCity());
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
         $("[data-test-id=name] input").setValue(validUser.getName());
@@ -129,11 +129,11 @@ public class DeliveryTest {
     @Test
     @DisplayName("shouldTestEmptyCity")
     void shouldTestEmptyCity() {
-        DataGenerator.EmptyUser emptyUser = DataGenerator.Registration.generateEmptyUser();
+        DataGenerator.UserInfo emptyUser = DataGenerator.Registration.generateEmptyUser();
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysForFirstMeeting = 4;
         String firstMeetingDate = DataGenerator.generateDate(daysForFirstMeeting);
-        $("[data-test-id=city] input").setValue(emptyUser.getEmptyCity());
+        $("[data-test-id=city] input").setValue(emptyUser.getCity());
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
         $("[data-test-id=name] input").setValue(validUser.getName());
@@ -165,14 +165,14 @@ public class DeliveryTest {
     @Test
     @DisplayName("shouldTestEmptyName")
     void shouldTestEmptyName() {
-        DataGenerator.EmptyUser emptyUser = DataGenerator.Registration.generateEmptyUser();
+        DataGenerator.UserInfo emptyUser = DataGenerator.Registration.generateEmptyUser();
         DataGenerator.UserInfo validUser = DataGenerator.Registration.generateUser("ru");
         int daysForFirstMeeting = 4;
         String firstMeetingDate = DataGenerator.generateDate(daysForFirstMeeting);
         $("[data-test-id=city] input").setValue(validUser.getCity());
         $("[data-test-id=date] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
         $("[data-test-id=date] input").setValue(firstMeetingDate);
-        $("[data-test-id=name] input").setValue(emptyUser.getEmptyName());
+        $("[data-test-id=name] input").setValue(emptyUser.getName());
         $("[data-test-id=phone] input").setValue(validUser.getPhone());
         $("[data-test-id=agreement]").click();
         $(byText("Запланировать")).click();

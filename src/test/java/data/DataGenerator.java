@@ -66,12 +66,12 @@ public class DataGenerator {
             return new UserInfo(generateCity(), generateName(locale), generatePhone(locale));
         }
 
-        public static InvalidUser generateInvalidUser(String locale) {
-            return new InvalidUser(generateInvalidCity(), generateInvalidName(), generatePhone(locale));
+        public static UserInfo generateInvalidUser(String locale) {
+            return new UserInfo(generateInvalidCity(), generateInvalidName(), generatePhone(locale));
         }
 
-        public static EmptyUser generateEmptyUser() {
-            return new EmptyUser(generateEmptyCity(), generateEmptyName(), generateEmptyPhone());
+        public static UserInfo generateEmptyUser() {
+            return new UserInfo(generateEmptyCity(), generateEmptyName(), generateEmptyPhone());
         }
     }
 
@@ -82,19 +82,4 @@ public class DataGenerator {
         String phone;
     }
 
-    @Value
-    public static class InvalidUser {
-        String invalidCity;
-        String funnyName;
-        String phone;
-
-
-    }
-
-    @Value
-    public static class EmptyUser {
-        String emptyCity;
-        String emptyName;
-        String emptyPhone;
-    }
 }
